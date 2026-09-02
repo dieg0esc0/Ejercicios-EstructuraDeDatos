@@ -10,4 +10,4 @@ tasa_interes = float(input("Ingresa la tasa de interes anual (X%): "))
 anios = int(input("Ingresa el numero de años: "))
 
 capital_final = calcular_capital(capital_inicial, tasa_interes, anios)
-print("El capital al cabo de", anios, "anios sera:", capital_final)
+print("El capital al cabo de", anios, "años sera:", capital_final)
