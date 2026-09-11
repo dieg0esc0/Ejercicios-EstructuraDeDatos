@@ -3,27 +3,26 @@ cola = []
 contador_id = 1
  
  
-def agregar_trabajo():
-    global contador_id
+def agregar_trabajo(id_nuevo):
     nombre = input("Nombre del documento a imprimir: ")
     paginas = int(input("Número de páginas: "))
  
     trabajo = {
-        "id": contador_id,
+        "id": id_nuevo,
         "nombre": nombre,
         "paginas": paginas
     }
  
     cola.append(trabajo)
-    print("Trabajo agregado a la cola con ID:", contador_id)
-    contador_id = contador_id + 1
+    print("Trabajo agregado a la cola con ID:", id_nuevo)
+    return id_nuevo + 1
  
  
 def procesar_trabajo():
     if len(cola) == 0:
         print("No hay trabajos en la cola para imprimir.")
     else:
-        trabajo = cola.pop(0) 
+        trabajo = cola.pop(0)  
         print("Imprimiendo documento:", trabajo["nombre"])
         print("Páginas:", trabajo["paginas"])
         print("Trabajo con ID", trabajo["id"], "completado.")
@@ -56,7 +55,7 @@ while opcion != 4:
     opcion = int(input("Elige una opción: "))
  
     if opcion == 1:
-        agregar_trabajo()
+        contador_id = agregar_trabajo(contador_id)
     elif opcion == 2:
         procesar_trabajo()
     elif opcion == 3:
